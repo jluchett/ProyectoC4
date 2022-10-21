@@ -8,6 +8,7 @@ var auth = require('./auth/main_auth');
 
 var empleadosRouter = require('./routes/empleados.router');
 var noviosRouter = require('./routes/novios.router');
+var usuariosRouter = require('./routes/usuarios.router');
 
 var app = express();
 
@@ -19,12 +20,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //mongo conection
 database.mongoConnect();
-app.use(auth);
 
 //router
+app.use('/usuarios', usuariosRouter);
+
+app.use(auth);
 
 app.use('/novios', noviosRouter);
 app.use('/empleados', empleadosRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
