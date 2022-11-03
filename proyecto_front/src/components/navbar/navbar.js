@@ -1,5 +1,9 @@
 import React from "react";
-import { Container, Dropdown, DropdownButton, Nav, Navbar } from "react-bootstrap";
+import { Container, Dropdown, DropdownButton, Nav, Navbar, Row } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faUserCircle} from '@fortawesome/free-solid-svg-icons'
+import './navbar.css'
+
 
 export default class Menu extends React.Component {
   constructor(props) {
@@ -8,7 +12,7 @@ export default class Menu extends React.Component {
   }
   render() {
     return (
-      <Navbar bg="primary" expand="lg" variant="dark">
+      <Navbar id="navbar" bg="primary" expand="lg" variant="dark">
         <Container>
           <Navbar.Brand href="#home">Novios.com</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -17,9 +21,16 @@ export default class Menu extends React.Component {
 
             </Nav>
             <DropdownButton id="dropdown-basic-button" title="usuario">
-                <Dropdown.Header>
-
+                <Dropdown.Header id="dropdown-header">
+                  <Row>
+                    <FontAwesomeIcon icon={faUserCircle} />
+                  </Row>
+                  <Row>
+                    #Usuario
+                  </Row>
+                  
                 </Dropdown.Header>
+                <Dropdown.Divider/>
               <Dropdown.Item href="#/action-1">Cerrar sesion</Dropdown.Item>
               {/*<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
               <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>*/}
